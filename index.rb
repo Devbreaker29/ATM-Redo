@@ -27,6 +27,7 @@ when 2
   make_withdrawl()
 when 3
   # make a deposit
+  make_deposit()
 when 4
   # exit the program
   puts "goodbye"
@@ -49,7 +50,7 @@ def make_withdrawl
   puts "How much do you want to withdraw?"
   amount = gets.chomp
 
-  valid = Validators.validate_withdrawl(amount)
+  valid = Validators.validate_postive_int(amount)
   if !valid
 
     puts "invalid amount, please enter a positive number"
@@ -70,5 +71,21 @@ updated_amount = (balance.to_i - amount.to_i).to_s
   puts "Your new balance is $#{updated_amount}"
 end
 
+def make_deposit
+  puts "How much to deposit?"
+  
+  amount = gets.chomp
+  valid = Validators.validate_postive_int(amount)
+
+  if !valid
+    puts "invalid amount, please enter a positive number"
+    make_deposit()
+  end
+
+  balance = get_balance()
+  new_amount = (balance.to_i + amount.to_i).to_s
+  File.write('balance.txt', new_amount)
+  puts "Your new balance is $#{new_amount}"
+end
 atm_view = AtmView.new
 welcome_and_input(atm_view)

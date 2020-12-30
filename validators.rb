@@ -11,7 +11,7 @@ else
 end
   end
 
-  def self.validate_withdrawl(input)
+  def self.validate_postive_int(input)
     num = input.to_i
     if num > 0
         return true
