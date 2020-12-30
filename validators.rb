@@ -10,4 +10,21 @@ else
     return false
 end
   end
+
+  def self.validate_withdrawl(input)
+    num = input.to_i
+    if num > 0
+        return true
+    else
+        return false
+    end
+   end
+
+def self.validate_amount_against_balance(withdrawl_amount, balance)
+    if withdrawl_amount.to_i > balance.to_i
+      return false
+    else
+      return true
+    end
+  end
 end
