@@ -1,7 +1,7 @@
 require_relative 'validators'
 require_relative 'atm_view'
 
-system("clear")
+# system("clear")
 
 # puts "ARGV:"
 # p ARGV
