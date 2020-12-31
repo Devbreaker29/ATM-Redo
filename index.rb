@@ -3,6 +3,9 @@ require_relative 'atm_view'
 
 system("clear")
 
+# puts "ARGV:"
+# p ARGV
+
 def welcome_and_input(atm_view)
     atm_view.show_options
 
@@ -87,5 +90,16 @@ def make_deposit
   File.write('balance.txt', new_amount)
   puts "Your new balance is $#{new_amount}"
 end
-atm_view = AtmView.new
-welcome_and_input(atm_view)
+
+if ARGV.length > 0
+ 
+  if ARGV[0] == '-h'|| ARGV[0] == '--help'
+    # print the help menu
+  puts "you asked for help"
+  end
+else
+
+ atm_view = AtmView.new
+ welcome_and_input(atm_view)
+end
+
